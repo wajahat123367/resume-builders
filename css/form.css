@@ -1,0 +1,141 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body and Background */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2c3e50, #4ca1af); /* Darker teal gradient */
+  color: #f8f8f8;
+}
+
+/* Form Container - Glassmorphism */
+.form-container {
+  background: rgba(255, 255, 255, 0.1); /* Slightly more transparent */
+  backdrop-filter: blur(12px) saturate(250%); /* Higher saturation for vibrancy */
+  -webkit-backdrop-filter: blur(12px) saturate(250%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2.5rem;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.8s ease;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #f7be16; /* Warm golden color */
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #f7be16; /* Matches heading color */
+  margin: 0.8rem auto;
+  border-radius: 2px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #f8f8f8;
+  margin: 1rem 0 0.4rem;
+  font-size: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05); /* Subtle background */
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 12px rgba(255, 165, 0, 0.6); /* Warm orange glow on focus */
+  border-color: #f39c12;
+  transform: translateY(-3px);
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Orange gradient */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15); /* Slightly more opaque overlay */
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+button:hover::after {
+  opacity: 0.3;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff9a8b, #fecf7f); /* Lighter orange gradient on hover */
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .form-container {
+    padding: 2rem;
+    width: 90%;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  label {
+    font-size: 0.9rem;
+  }
+  input, textarea {
+    padding: 0.7rem;
+  }
+  button {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
